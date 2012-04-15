@@ -1,22 +1,10 @@
 class httpd {
-  include apache::params
-  package { 'httpd':
-    name   => $apache::params::apache_name,
+  package { 'httpd-devel':
     ensure => installed,
   }
   service { 'httpd':
-    name      => $apache::params::apache_name,
     ensure    => running,
     enable    => true,
-    subscribe => Package['httpd'],
-  }
-
-  file { "httpd_vdir":
-    name => $apache::params::vdir,
-    ensure  => directory,
-    recurse => true,
-    purge   => true,
-    notify  => Service['httpd'],
-    require => Package['httpd'],
+    subscribe => Package['httpd-devel'],
   }
 }

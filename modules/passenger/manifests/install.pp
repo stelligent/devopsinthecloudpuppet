@@ -3,12 +3,11 @@
 
 class passenger::install {
   include passenger::params
-  require => Class['system']
+  require system
   $version=$passenger::params::version
 
   package {'passenger':
     name   => 'passenger',
-    ensure => $version,
     ensure => "installed",
     provider => 'gem',
   }
