@@ -1,7 +1,7 @@
 # Class: passenger::params
 
 class passenger::params {  
-  $version='3.0.11'
+  $version='3.0.12'
 
   $gem_path = '/usr/lib/ruby/gems/1.8/gems'
   $gem_binary_path = '/usr/lib/ruby/gems/1.8/gems/bin'
